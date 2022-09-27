@@ -3,11 +3,20 @@ package main
 import (
         "fmt"
         "net"
+	"os/exec"
 )
 
 func main(){
-	netCapabilities()
-	netConfig()
+	cmd := exec.Command("touch","test")
+	stdout, _ := cmd.Output()
+	fmt.Print(string(stdout))
+	//cmd.Run()
+}
+
+func cmd_func(){
+	cmd := exec.Command("netstat","-nr")
+	stdout, _ := cmd.Output()
+	fmt.Print(string(stdout))
 }
 
 func netCapabilities(){
