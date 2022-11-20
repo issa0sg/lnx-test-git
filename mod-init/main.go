@@ -1,23 +1,28 @@
 package main
+
 import (
-	"fmt"
-	"mod-init/store"
+	// "fmt"
+	_ "mod-init/data"
 	. "mod-init/fmt"
+	"mod-init/store"
 	"mod-init/store/cart"
+
+	"github.com/fatih/color"
 )
-func main(){
+
+func main() {
 
 	var product *store.Product = &store.Product{
-		Name: "Kayak",
-		Category: "WaterSports",
+		Name:     "Kayak",
+		Category: "Watersports",
 	}
-	product.SetPrice(100)
-	 
+	product.SetPrice(400)
+
 	var cart *cart.Cart = &cart.Cart{
 		CustomerName: "Giorno",
-		Products: []store.Product{*product},
+		Products:     []store.Product{*product},
 	}
 
-	fmt.Println("Name:",cart.CustomerName)
-	fmt.Println("Price:",ToCurrency(cart.GetTotal()))
+	color.Green("Name: " + cart.CustomerName)
+	color.Cyan("Price: " + ToCurrency(cart.GetTotal()))
 }
