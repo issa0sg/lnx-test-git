@@ -12,7 +12,7 @@ func main(){
 		Category: "WaterSports",
 	}
 	product.SetPrice(100)
-	
+	 
 	var cart *cart.Cart = &cart.Cart{
 		CustomerName: "Giorno",
 		Products: []store.Product{*product},
